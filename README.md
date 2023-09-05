@@ -1,6 +1,6 @@
 # Cooper's Advanced Algorithms Class
 
-This is a repository for my Advanced Algorithms class at my highschool. *Ignore the lack of any legit testing*, I'm just trying to pass this class ¯\\\_(ツ)\_/¯
+This is a repository for my Advanced Algorithms class at my highschool. *I made sure to test thoroughly 😎*
 
 ░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
 ░░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄░░░░
