@@ -1,0 +1,15 @@
+{
+  "name": "algo-class-ts",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "BinarySearchTree.ts",
+  "scripts": {
+    "install": "curl -fsSL https://deno.land/x/install/install.sh | sh",
+    "start": "deno run ./BinarySearchTree.ts",
+    "test": "deno test ./BinarySearchTree.ts"
+  },
+  "keywords": [],
+  "author": "coopTRUE",
+  "license": "ISC"
+}

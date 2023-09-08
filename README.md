@@ -2,6 +2,8 @@
 
 This is a repository for my Advanced Algorithms class at my highschool. *I made sure to test thoroughly 😎*
 
+If you want to easily checkout The BinarySearchTree typescript code, use [this link](
+
 ░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄░░░░░░░
 ░░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄░░░░
 ░░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█░░░

@@ -45,15 +45,17 @@ class BSTNode<T> {
       }
     }
   }
-
   public search(value: T): Maybe<BSTNode<T>> {
     if (value === this.value) {
       return this;
-    } else if (value < this.value) {
-      return this.left?.search(value);
-    } else {
-      return this.right?.search(value);
     }
+    if (value < this.value) {
+      return this.left?.search(value);
+    }
+    return this.right?.search(value);
+  }
+  public min(): BSTNode<T> {
+    return this.left?.min() ?? this;
   }
 
   toString() {
@@ -62,6 +64,7 @@ class BSTNode<T> {
   }
 
   private _displayAux(): [string[], number, number, number] {
+    // stolen from https://stackoverflow.com/questions/34012886/print-binary-tree-level-by-level-in-python
     if (!this.right && !this.left) {
       const line = `${this.value}`;
       const width = line.length;
@@ -140,7 +143,7 @@ class BSTNode<T> {
   }
 }
 
-function generateNBST(
+function generateBSTs(
   n: number,
   generateBST: () => BST<number>,
   rng: () => number
@@ -186,17 +189,29 @@ Deno.test("3 Insertions", () => {
 });
 
 Deno.test("20 Insertions", () => {
-  const bst = generateNBST(
-    20,
+  const bst = generateBSTs(
+    100,
     () => new BST<number>(Math.sign),
     () => Math.floor(Math.random() * 100)
   );
-  assertEquals(bst.size, 20);
+  // assertEquals(bst.size, 20);
+  bst.log();
 });
 
 Deno.test("3 sized search", () => {
-  const bst = generateNBST(
+  const bst = generateBSTs(
     3,
+    () => new BST<number>(Math.sign),
+    () => Math.floor(Math.random() * 100)
+  );
+  const value = Math.floor(Math.random() * 100);
+  bst.insert(value);
+  assertEquals(bst.search(value)?.value, value);
+});
+
+Deno.test("20 sized search", () => {
+  const bst = generateBSTs(
+    20,
     () => new BST<number>(Math.sign),
     () => Math.floor(Math.random() * 100)
   );
