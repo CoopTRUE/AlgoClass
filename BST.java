@@ -111,6 +111,30 @@ public class BST<T extends Comparable<T>> {
   }
 
   /**
+   * Calculate the depth of the tree.
+   * The depth of the tree is the number of nodes along the longest path
+   *
+   * @return the depth of the tree
+   */
+  public int depth() {
+    return depth(root);
+  }
+
+  /**
+   * This is an internal method to calculate the depth of the tree.
+   * Used in depth()
+   *
+   * @param node the root node of the tree
+   * @return the depth of the tree
+   */
+  private int depth(Node<T> node) {
+    if (node == null) {
+      return 0;
+    }
+    return 1 + Math.max(depth(node.getLeft()), depth(node.getRight()));
+  }
+
+  /**
    * Traverse the tree in order. Print the data of each node.
    */
   void inorder() {
@@ -195,5 +219,33 @@ public class BST<T extends Comparable<T>> {
     System.out.println("Inorder traversal of the modified tree");
     bst2.inorder();
 
+    // 1) Implement a method to calculate the depth of a given binary search tree.
+    // 2) Generate a large number of binary search trees with random values.
+    // 3) Calculate and display statistics (e.g., average depth, minimum depth,
+    // maximum depth) for the trees.
+
+    int numTrees = 1000; // The number of trees you want to generate
+    int maxDepth = Integer.MIN_VALUE;
+    int minDepth = Integer.MAX_VALUE;
+    int sumDepth = 0;
+    int range = 100; // Range of the random numbers
+
+    for (int i = 0; i < numTrees; i++) {
+      BST<Integer> randBst = new BST<>();
+      for (int j = 0; j < 20; j++) { // Inserting 20 random numbers into each tree
+        int randomNum = (int) (Math.random() * range);
+        randBst.insert(randomNum);
+      }
+
+      int currentDepth = randBst.depth();
+      maxDepth = Math.max(maxDepth, currentDepth);
+      minDepth = Math.min(minDepth, currentDepth);
+      sumDepth += currentDepth;
+    }
+
+    double averageDepth = (double) sumDepth / numTrees;
+    System.out.println("Maximum Depth: " + maxDepth);
+    System.out.println("Minimum Depth: " + minDepth);
+    System.out.println("Average Depth: " + averageDepth);
   }
 }
